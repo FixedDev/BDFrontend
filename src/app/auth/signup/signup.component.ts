@@ -38,7 +38,6 @@ export class SignupComponent implements OnInit {
       lastNameMaternal: this.lastNameMaternal,
       roleId: this.role
     }).subscribe(value => {
-      console.log(value)
       if (value["response"] == true) {
         localStorage.setItem("user-id", value["data"]["usersId"])
         localStorage.setItem("user", JSON.stringify(value["data"]))

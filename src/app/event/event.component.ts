@@ -46,16 +46,13 @@ export class EventComponent implements OnInit {
             value["campus"] = actualCampus;
             value["category"] = actualCategory;
 
-            console.log(value);
             if (value["assistanceType"] === "VIRTUAL") {
                 let virtualData: any = await firstValueFrom(this.http.get<any>("http://localhost:8080/virtualEvents/" + this.id));
 
-                console.log(virtualData)
                 value["link"] = virtualData["link"];
             } else if (value["assistanceType"] === "IN_PERSON") {
                 let presentialData: any = await firstValueFrom(this.http.get<any>("http://localhost:8080/presentialEvents/" + this.id));
 
-                console.log(presentialData)
                 value["location"] = presentialData["location"];
             }
 

@@ -20,7 +20,6 @@ export class EventsComponent implements OnInit {
 
 
   onIonInfinite(event: InfiniteScrollCustomEvent) {
-    console.log("Loading infinite scroll")
     this.generateItems().then(value => {
       setTimeout(() => {
         event.target.complete().then(value1 => {
