@@ -1,10 +1,9 @@
-<ion-infinite-scroll>
-    <app-event *ngFor="let eventId of eventIds" [id]=eventId >
-    </app-event>
-
-    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
-        <ion-infinite-scroll-content></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+<ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <div *ngFor="let eventId of eventIds">
+        <app-event [id]=eventId>
+        </app-event>
+    </div>
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
 </ion-infinite-scroll>
 
 
