@@ -13,6 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
+  <div id="container">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" *ngIf="isSuperUser">
     <ion-fab-button color="primary" (click)="setOpen(true)">
       <ion-icon name="add"></ion-icon>
@@ -33,10 +37,6 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-
-  <div id="container">
-    <app-events></app-events>
-  </div>
 
 
 </ion-content>

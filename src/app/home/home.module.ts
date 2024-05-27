@@ -9,6 +9,8 @@ import {EventComponent} from "../event/event.component";
 import {HttpClientModule} from "@angular/common/http";
 import {EventsComponent} from "../events/events.component";
 import {AddEventComponent} from "../add-event/add-event.component";
+import {QRCodeModule} from "angularx-qrcode";
+import {TicketGeneratorComponent} from "../ticket-generator/ticket-generator.component";
 
 
 @NgModule({
@@ -18,8 +20,8 @@ import {AddEventComponent} from "../add-event/add-event.component";
     IonicModule,
     HomePageRoutingModule,
     HttpClientModule,
-
+    QRCodeModule
   ],
-  declarations: [HomePage, EventComponent, EventsComponent, AddEventComponent]
+  declarations: [HomePage, EventComponent, EventsComponent, AddEventComponent, TicketGeneratorComponent]
 })
 export class HomePageModule {}

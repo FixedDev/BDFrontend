@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card (click)="openTicket" [routerLink]="['/home/ticket', id]">
   <ion-card-header>
     <ion-card-title>{{ event.name }}</ion-card-title>
   </ion-card-header>

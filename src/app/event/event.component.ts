@@ -61,6 +61,10 @@ export class EventComponent implements OnInit {
         });
     }
 
+    openTicket() {
+        this.router.navigate(["/ticket", this.id])
+    }
+
 }
 
 export interface Category {
