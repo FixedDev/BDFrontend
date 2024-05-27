@@ -1,0 +1,76 @@
+<ion-content>
+    <ion-text>
+        <h2>Información del evento</h2>
+    </ion-text>
+
+    <form class="form-container">
+        <!-- Nombre -->
+        <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input required [(ngModel)]="event.name" name="name"></ion-input>
+        </ion-item>
+
+        <!-- Categoría -->
+        <ion-item>
+            <ion-label position="floating">Categoría</ion-label>
+            <ion-select required [(ngModel)]="categoryId" name="category">
+                <ion-select-option *ngFor="let category of categories" value="{{category.categoryId}}">{{category.name}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <!-- Costo -->
+        <ion-item>
+            <ion-label position="floating">Costo</ion-label>
+            <ion-input type="number" required [(ngModel)]="event.cost" name="cost"></ion-input>
+        </ion-item>
+
+        <!-- Fecha -->
+        <ion-item>
+            <ion-label>Fecha</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD HH:mm" [(ngModel)]="event.date" name="date"></ion-datetime>
+        </ion-item>
+
+        <!-- Campus -->
+        <ion-item>
+            <ion-label position="floating">Campus</ion-label>
+            <ion-select required [(ngModel)]="campusesId" name="campus">
+                <ion-select-option *ngFor="let campus of campuses" value="{{campus.campusesId}}">{{campus.name}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <!-- Numerado -->
+        <ion-item>
+            <ion-label>Númerado</ion-label>
+            <ion-checkbox slot="end" [(ngModel)]="event.numbered" name="numbered"></ion-checkbox>
+        </ion-item>
+
+        <!-- Capacidad -->
+        <ion-item>
+            <ion-label position="floating">Capacidad</ion-label>
+            <ion-input type="number" required [(ngModel)]="event.capacity" name="capacity"></ion-input>
+        </ion-item>
+
+        <!-- Tipo de asistencia -->
+        <ion-item>
+            <ion-label>Tipo de asistencia</ion-label>
+            <ion-select [(ngModel)]="event.assistanceType" (ionChange)="selectType"
+                        placeholder="Seleccionar Tipo de Asistencia" name="assistanceType">
+                <ion-select-option value="IN_PERSON">Presencial</ion-select-option>
+                <ion-select-option value="VIRTUAL">Virtual</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="event.assistanceType === 'IN_PERSON' ">
+            <ion-label position="floating">Localizacion</ion-label>
+            <ion-input required [(ngModel)]="event.location" name="name"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="event.assistanceType === 'VIRTUAL' ">
+            <ion-label position="floating">Enlace</ion-label>
+            <ion-input required [(ngModel)]="event.link " name="name"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" (click)="generate()">Agregar Evento</ion-button>
+    </form>
+</ion-content>

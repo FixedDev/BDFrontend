@@ -5,6 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import {EventComponent} from "../event/event.component";
+import {HttpClientModule} from "@angular/common/http";
+import {EventsComponent} from "../events/events.component";
+import {AddEventComponent} from "../add-event/add-event.component";
 
 
 @NgModule({
@@ -12,8 +16,10 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    HttpClientModule,
+
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, EventComponent, EventsComponent, AddEventComponent]
 })
 export class HomePageModule {}

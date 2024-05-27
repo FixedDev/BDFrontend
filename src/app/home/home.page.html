@@ -13,8 +13,30 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" *ngIf="isSuperUser">
+    <ion-fab-button color="primary" (click)="setOpen(true)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Agregar Producto</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <app-add-event></app-add-event>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <app-events></app-events>
   </div>
+
+
 </ion-content>

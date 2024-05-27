@@ -1,0 +1,26 @@
+<div class="main-container">
+  <div class="input-text">
+    <ion-text>
+      <h2>Crea tu cuenta</h2>
+      <small>¿Ya tienes una cuenta? <a [routerLink]="'/auth/login/'">Inicia sesión</a></small>
+    </ion-text>
+  </div>
+  <div class="input-container">
+    <form>
+      <ion-input [(ngModel)]="firstName" label="Nombre" labelPlacement="floating" name="firstName"></ion-input>
+      <ion-input [(ngModel)]="lastNamePaternal" label="Apellido" labelPlacement="floating"
+                 name="lastNamePaternal"></ion-input>
+      <ion-input [(ngModel)]="lastNameMaternal" label="Apellido Materno" labelPlacement="floating"
+                 name="lastNameMaternal"></ion-input>
+      <ion-input [(ngModel)]="correo" label="Correo" labelPlacement="floating" name="correo"></ion-input>
+      <ion-input [(ngModel)]="passwd" label="Contraseña" type="password" labelPlacement="floating"
+                 name="passwd"></ion-input>
+      <ion-select [(ngModel)]="role" name="role">
+        <ion-select-option *ngFor="let role of roles" value="{{role.rolesId}}">{{role.roleName}}
+        </ion-select-option>
+      </ion-select>
+      <ion-button (click)="generar()" [disabled]="!correo || !passwd">Crear cuenta</ion-button>
+    </form>
+
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor() {
+  }
 
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  isSuperUser() {
+    let value = JSON.parse(localStorage.getItem("user") ?? "{}");
+
+    let role = value["role"]["roleId"];
+
+    return role !== 4 && role !== 3 ;
+  }
 }

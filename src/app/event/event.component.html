@@ -1,0 +1,45 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ event.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Campus:</ion-label>
+        <ion-text>{{ event.campus.name }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Assistance Type:</ion-label>
+        <ion-text>{{ event.assistanceType }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Capacity:</ion-label>
+        <ion-text>{{ event.capacity }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category:</ion-label>
+        <ion-text>{{ event.category.name }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cost:</ion-label>
+        <ion-text>{{ event.cost }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date:</ion-label>
+        <ion-text>{{ event.date | date: 'MMM dd, yyyy' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Numbered:</ion-label>
+        <ion-text>{{ event.numbered ? 'Yes' : 'No' }}</ion-text>
+      </ion-item>
+      <ion-item *ngIf="event.assistanceType === 'IN_PERSON'">
+        <ion-label>Location:</ion-label>
+        <ion-text>{{ event.location  }}</ion-text>
+      </ion-item>
+      <ion-item *ngIf="event.assistanceType === 'VIRTUAL'">
+        <ion-label>Link:</ion-label>
+        <ion-text>{{ event.link  }}</ion-text>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
