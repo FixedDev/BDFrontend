@@ -1,0 +1,20 @@
+<div id="container">
+    <ion-card>
+        <ion-card-title>
+            Ticket Generado
+        </ion-card-title>
+        <ion-card-content>
+            <p><strong>Evento:</strong> {{ticket.getValue().event.name }}</p>
+            <p>
+                <strong>Asistente:</strong> {{ ticket.getValue().user.firstName }} {{ ticket.getValue().user.lastNamePaternal }}
+            </p>
+            <p><strong>Correo:</strong> {{ ticket.getValue().user.email }}</p>
+
+            <div *ngIf="qrData" class="qr-code-container">
+                <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+            </div>
+
+        </ion-card-content>
+    </ion-card>
+
+</div>
